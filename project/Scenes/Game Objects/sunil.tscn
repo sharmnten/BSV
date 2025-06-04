@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl76k7pbcy6ai"]
+
+[ext_resource type="Texture2D" uid="uid://bn15ipbmxkf6t" path="res://Sprites/New Art/sunil.png" id="1_uja7m"]
+[ext_resource type="Texture2D" uid="uid://tqx2jthcdq0u" path="res://Sprites/New Art/hotbar_selector.png" id="2_u3qfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hre7m"]
+size = Vector2(140, 253)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nuq1"]
+size = Vector2(35, 21)
+
+[node name="Sunil" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_uja7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.625)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_hre7m")
+
+[node name="Interact" type="Area2D" parent="." groups=["store"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_1nuq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interact"]
+position = Vector2(0, 50)
+scale = Vector2(1.7721, 0.96)
+texture = ExtResource("2_u3qfg")

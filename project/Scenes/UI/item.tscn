@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5jbhve487ayn"]
+
+[ext_resource type="Script" uid="uid://ctchhk2vxx44l" path="res://Scripts/item.gd" id="1_jl4sg"]
+[ext_resource type="Texture2D" uid="uid://cttpac2ub1mqq" path="res://Sprites/New Art/inventorySlot.png" id="2_lxahe"]
+[ext_resource type="FontFile" uid="uid://cih3wmcbdnf1b" path="res://Fonts/StardewValley.ttf" id="3_lxahe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4ry"]
+atlas = ExtResource("2_lxahe")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5txi"]
+atlas = ExtResource("2_lxahe")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmeju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u4ry")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5txi")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="Hotbar" type="Node2D"]
+script = ExtResource("1_jl4sg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xmeju")
+autoplay = "default"
+
+[node name="Amount" type="Label" parent="."]
+offset_left = 4.0
+offset_right = 44.0
+offset_bottom = 23.0
+scale = Vector2(1, 0.92)
+theme_override_fonts/font = ExtResource("3_lxahe")
+theme_override_font_sizes/font_size = 16

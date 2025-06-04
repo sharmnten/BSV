@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b3mx5shm2rrox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abrne"]
+bg_color = Color(0.650275, 0.388626, 0, 1)
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd3fu"]
+bg_color = Color(0.67092, 0.430372, 0.0461028, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_abrne")
+Button/styles/normal = SubResource("StyleBoxFlat_yd3fu")

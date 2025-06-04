@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyqelqudd58ws"]
+
+[ext_resource type="FontFile" uid="uid://cih3wmcbdnf1b" path="res://Fonts/StardewValley.ttf" id="1_h87vg"]
+[ext_resource type="Script" uid="uid://bqk3f5y5lj4iv" path="res://Scripts/credits.gd" id="1_k0d3f"]
+[ext_resource type="Texture2D" uid="uid://cges51wxw8kfy" path="res://Sprites/New Art/bg.jpeg" id="1_q4iv0"]
+[ext_resource type="Theme" uid="uid://b3mx5shm2rrox" path="res://Theme.tres" id="3_tdxk4"]
+[ext_resource type="FontFile" uid="uid://bnroubfrpc8vw" path="res://Fonts/Stardew-Valley-Regular.ttf" id="4_k0d3f"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0d3f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_q4iv0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 1124.0
+offset_bottom = 617.0
+scale = Vector2(1.02538, 1.04706)
+theme_override_fonts/normal_font = ExtResource("1_h87vg")
+theme_override_font_sizes/normal_font_size = 50
+text = "Neal Sharma - Developer
+Jay Friedl - Artist
+Allan Liu - Emotional Support,\"Research\", and Presentation
+Conan Projango - Inspiration and Presentation
+Ms. Dykhuis - Guest Speaker
+"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_top = 516.0
+offset_right = 1152.0
+offset_bottom = 650.0
+theme = ExtResource("3_tdxk4")
+theme_override_fonts/font = ExtResource("4_k0d3f")
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

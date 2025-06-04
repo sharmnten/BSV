@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c161qtxv8ui5j"]
+
+[ext_resource type="Script" uid="uid://ce1h1lrln3dko" path="res://Scripts/hotbar.gd" id="1_kjkqa"]
+[ext_resource type="PackedScene" uid="uid://c5jbhve487ayn" path="res://Scenes/UI/item.tscn" id="1_trnr3"]
+[ext_resource type="Texture2D" uid="uid://tn8akdlkj1pb" path="res://Sprites/New Art/hoe.png" id="2_sk345"]
+[ext_resource type="Texture2D" uid="uid://cujra2xtqjixl" path="res://Sprites/New Art/seeds.png" id="3_26udg"]
+[ext_resource type="Texture2D" uid="uid://c60efxhg0bmex" path="res://Sprites/New Art/corn (1).png" id="3_cxdlu"]
+[ext_resource type="Texture2D" uid="uid://dv78leqbc78cd" path="res://Sprites/New Art/can.png" id="5_ss4vx"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kjkqa")
+
+[node name="Hotbar4" parent="." instance=ExtResource("1_trnr3")]
+position = Vector2(74, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hotbar4"]
+scale = Vector2(0.109998, 0.11)
+texture = ExtResource("3_cxdlu")
+
+[node name="Hotbar3" parent="." instance=ExtResource("1_trnr3")]
+position = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hotbar3"]
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_26udg")
+
+[node name="Hotbar1" parent="." instance=ExtResource("1_trnr3")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hotbar1"]
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_sk345")
+
+[node name="Hotbar2" parent="." instance=ExtResource("1_trnr3")]
+position = Vector2(25, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hotbar2"]
+position = Vector2(-2.38419e-07, -4.76837e-07)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("5_ss4vx")

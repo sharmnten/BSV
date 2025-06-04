@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpy7w1x2sl2px"]
+
+[ext_resource type="Texture2D" uid="uid://c1gjcb17kspfd" path="res://Sprites/New Art/chest.png" id="1_lyb87"]
+[ext_resource type="Texture2D" uid="uid://tqx2jthcdq0u" path="res://Sprites/New Art/hotbar_selector.png" id="2_cjfl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyb87"]
+size = Vector2(77, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjfl1"]
+size = Vector2(78, 76)
+
+[node name="Chest" type="Area2D" groups=["sell_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["sell_area"]]
+position = Vector2(-0.5, 15.5)
+shape = SubResource("RectangleShape2D_lyb87")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, -38)
+texture = ExtResource("1_lyb87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -38)
+shape = SubResource("RectangleShape2D_cjfl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(3.85, 1.6)
+texture = ExtResource("2_cjfl1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -24)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(24, 20)
+direction = Vector2(0, -1)
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(1, 1, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0

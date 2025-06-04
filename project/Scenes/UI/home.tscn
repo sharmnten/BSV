@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3k8psknxkr5n"]
+
+[ext_resource type="Script" uid="uid://cvd068qc5fylx" path="res://Scripts/home.gd" id="1_shcre"]
+[ext_resource type="Texture2D" uid="uid://cges51wxw8kfy" path="res://Sprites/New Art/bg.jpeg" id="2_gthro"]
+[ext_resource type="Theme" uid="uid://b3mx5shm2rrox" path="res://Theme.tres" id="2_n5qh8"]
+[ext_resource type="FontFile" uid="uid://bnroubfrpc8vw" path="res://Fonts/Stardew-Valley-Regular.ttf" id="3_n5qh8"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shcre")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("2_gthro")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 428.0
+offset_right = 662.0
+offset_bottom = 497.0
+theme = ExtResource("2_n5qh8")
+theme_override_fonts/font = ExtResource("3_n5qh8")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 502.0
+offset_right = 665.0
+offset_bottom = 571.0
+theme = ExtResource("2_n5qh8")
+theme_override_fonts/font = ExtResource("3_n5qh8")
+theme_override_font_sizes/font_size = 50
+text = "Credits
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 150.0
+offset_right = 1238.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("3_n5qh8")
+theme_override_font_sizes/font_size = 100
+text = "Budget Stardew Valley"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

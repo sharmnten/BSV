@@ -1,0 +1,167 @@
+[gd_scene load_steps=17 format=3 uid="uid://bbell6lt86vjp"]
+
+[ext_resource type="Script" uid="uid://b102w6q5hw28r" path="res://Scripts/ground.gd" id="1_688p1"]
+[ext_resource type="Texture2D" uid="uid://bqdpuuqr6dx1b" path="res://Sprites/New Art/spritesheet.png" id="2_s6h8e"]
+[ext_resource type="Texture2D" uid="uid://brcloptcgcahg" path="res://Sprites/Old Art/vectoraith_tileset_farmingsims_crops_dense_48x48.png" id="3_02qk3"]
+[ext_resource type="Texture2D" uid="uid://toxngff483bf" path="res://Sprites/New Art/corn.png" id="4_kv0ry"]
+[ext_resource type="Texture2D" uid="uid://c60efxhg0bmex" path="res://Sprites/New Art/corn (1).png" id="5_3a6oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfja7"]
+atlas = ExtResource("2_s6h8e")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a6oi"]
+atlas = ExtResource("2_s6h8e")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgqsm"]
+atlas = ExtResource("2_s6h8e")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjp1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfja7")
+}],
+"loop": true,
+"name": &"tilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a6oi")
+}],
+"loop": true,
+"name": &"untilled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgqsm")
+}],
+"loop": true,
+"name": &"watered",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oltiy"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iiau"]
+atlas = ExtResource("4_kv0ry")
+region = Rect2(157, 0, 157, 317)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxb06"]
+atlas = ExtResource("4_kv0ry")
+region = Rect2(314, 0, 157, 317)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0cfx"]
+atlas = ExtResource("4_kv0ry")
+region = Rect2(471, 0, 157, 317)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xbik"]
+atlas = ExtResource("3_02qk3")
+region = Rect2(432, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjp1w"]
+atlas = ExtResource("4_kv0ry")
+region = Rect2(0, 0, 157, 317)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xbik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iiau")
+}],
+"loop": true,
+"name": &"day_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxb06")
+}],
+"loop": true,
+"name": &"day_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0cfx")
+}],
+"loop": true,
+"name": &"day_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xbik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjp1w")
+}],
+"loop": true,
+"name": &"planted",
+"speed": 5.0
+}]
+
+[node name="ground" type="Area2D" groups=["ground"]]
+script = ExtResource("1_688p1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jjp1w")
+animation = &"untilled"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oltiy")
+
+[node name="Plant" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -23)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_2xbik")
+animation = &"day_2"
+autoplay = "default"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Plant"]
+emitting = false
+amount = 4
+texture = ExtResource("5_3a6oi")
+lifetime = 0.75
+one_shot = true
+explosiveness = 0.2
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 100.0
+initial_velocity_min = 700.0
+initial_velocity_max = 700.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[node name="Tilled" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(24, 24)
+direction = Vector2(0, -1)
+spread = 80.0
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+angular_velocity_min = -720.0
+angular_velocity_max = 340.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.277339, 0.619107, 0.11018, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
