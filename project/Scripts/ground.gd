@@ -6,6 +6,8 @@ var watered = false
 var days_planted = -1 # Start at -1 so first call to next_day makes it 0
 var ready_for_harvest=false
 @onready var player_node: Node = get_node("../../player")
+var crop_type: String = "" # Track what crop is planted
+var crop_data: CropData = null
 
 #define rng
 
@@ -24,14 +26,19 @@ func _process(delta: float) -> void:
 func _on_player_next_day():
 	if((watered&&state=="planted")&&ready_for_harvest==false):
 		days_planted=days_planted+1
-		days_planted = days_planted%3
+		if crop_data:
+			days_planted = days_planted % crop_data.growth_days
+		else:
+			days_planted = days_planted % 3
 		plant.play("day_"+str(days_planted))
 		watered=false
 		$AnimatedSprite2D.play("tilled")
 	elif(watered):
 		watered = false
 		$AnimatedSprite2D.play("tilled")
-	if(days_planted==2):
+	if crop_data and days_planted == crop_data.growth_days - 1:
+		ready_for_harvest=true
+	elif not crop_data and days_planted == 2:
 		ready_for_harvest=true
 		
 		
@@ -46,8 +53,19 @@ func set_watered(param)->void:
 	watered = param
 func get_watered()->bool:
 	return watered
-func harvested()->void:
+func harvested()->String:
+	var harvested_crop = crop_type
 	plant.play("default")
 	ready_for_harvest=false
 	days_planted=-1
 	state = "tilled"
+	crop_type = ""
+	crop_data = null
+	return harvested_crop
+
+func plant_crop(type: String)->void:
+	crop_type = type
+	if CropManager.instance:
+		crop_data = CropManager.instance.get_crop(type)
+	state = "planted"
+	plant.play("planted")

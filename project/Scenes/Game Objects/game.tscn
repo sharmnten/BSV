@@ -680,6 +680,65 @@ theme_override_fonts/font = ExtResource("6_uo6jr")
 theme_override_font_sizes/font_size = 50
 text = "Day 0"
 
+[node name="CropType" type="Label" parent="player/Camera2D"]
+offset_left = 250.0
+offset_top = -313.0
+offset_right = 570.0
+offset_bottom = -290.0
+theme_override_fonts/font = ExtResource("6_uo6jr")
+theme_override_font_sizes/font_size = 40
+text = "Crop: Corn"
+horizontal_alignment = 2
+
+[node name="Season" type="Label" parent="player/Camera2D"]
+offset_left = -570.0
+offset_top = -205.0
+offset_right = -370.0
+offset_bottom = -182.0
+theme_override_fonts/font = ExtResource("6_uo6jr")
+theme_override_font_sizes/font_size = 40
+text = "Season: Spring"
+
+[node name="SaveIndicator" type="Label" parent="player/Camera2D"]
+visible = false
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 0.0
+theme_override_fonts/font = ExtResource("6_uo6jr")
+theme_override_font_sizes/font_size = 40
+text = "Game Saved!"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="player/Camera2D"]
+offset_left = 200.0
+offset_top = 250.0
+offset_right = 570.0
+offset_bottom = 350.0
+theme_override_fonts/font = ExtResource("6_uo6jr")
+theme_override_font_sizes/font_size = 20
+text = "WASD: Move | Space: Use Tool
+1-3: Select Tool | Q: Change Crop
+F: Next Day | Ctrl+S: Save | Ctrl+L: Load"
+horizontal_alignment = 2
+
+[node name="EnergyBar" type="ProgressBar" parent="player/Camera2D"]
+offset_left = -570.0
+offset_top = -150.0
+offset_right = -370.0
+offset_bottom = -130.0
+value = 100.0
+show_percentage = false
+
+[node name="EnergyLabel" type="Label" parent="player/Camera2D"]
+offset_left = -570.0
+offset_top = -175.0
+offset_right = -370.0
+offset_bottom = -152.0
+theme_override_fonts/font = ExtResource("6_uo6jr")
+theme_override_font_sizes/font_size = 25
+text = "Energy: 100/100"
+
 [node name="ItemList" type="ItemList" parent="player/Camera2D"]
 visible = false
 offset_left = -68.0
